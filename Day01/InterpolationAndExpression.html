@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>插值和表达式</title>
+    <script src="../js/vue.js"></script>
+</head>
+<body>
+    <!-- 使用双大括号{{}}是最基本的文本插值方法，它会自动将我们双向绑定的数据实时显示出来 -->
+
+    <div id="app">
+        {{ book }}
+        {{ date }}
+    </div>
+    <script>
+        var app = new Vue({
+            el: '#app',
+            data: {
+                book: '《Vue.js 实战》',
+                date: new Date()
+            },
+            <!-- 使用定时器实时显示时间 -->
+            mounted: function () {
+                var _this = this;
+                this.timer = setInterval(function () {
+                    _this.date = new Date();
+                }, 1000)
+            },
+            beforeDestroy: function () {
+                if (this.timer){
+                    clearInterval(this.timer);
+                }
+            }
+        })
+    </script>
+</body>
+</html>
