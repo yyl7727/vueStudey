@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>实例与数据</title>
+    <script src="../js/vue.js"></script>
+</head>
+<body>
+    <div id="app">
+        {{a}}
+    </div>
+    <script>
+        var myData = {
+            a: 1
+        }
+        var app = new Vue({
+            el: '#app',
+            data: myData
+        })
+        console.log(myData.a)
+    </script>
+</body>
+</html>
