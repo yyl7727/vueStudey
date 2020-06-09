@@ -10,14 +10,24 @@
 
     <div id="app">
         {{ book }}
+        <br>
         {{ date }}
+        <br>
+        <!-- 使用v-html标记会让内容解析为html -->
+        <span v-html="link"></span>
+        <br>
+        <!-- 如果不想{{}}内的内容被vue编译可以使用 v-pre标记 例如 -->
+        <span v-pre>{{ date }}</span>
+
+        <!-- 双括号内还可以进行一些运算 -->
     </div>
     <script>
         var app = new Vue({
             el: '#app',
             data: {
                 book: '《Vue.js 实战》',
-                date: new Date()
+                date: new Date(),
+                link: '<a href="FirstVueDemo.html">testLink</a>'
             },
             <!-- 使用定时器实时显示时间 -->
             mounted: function () {
