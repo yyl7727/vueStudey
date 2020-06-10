@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>指令与事件</title>
+    <script src="../js/vue.js"></script>
+</head>
+<body>
+    <div id="app">
+        <!-- v-if中的值为true时显示标签，否则不显示 -->
+        <p v-if="show">fak u</p>
+
+        <!-- v-bind的基本用途是动态更新HTML元素上的属性，如：id,class等等 -->
+        <a v-bind:href="url">这是一个测试连接</a>
+
+        <!-- v-on绑定事件监听器 -->
+        <button v-on:click="handleClose">隐藏 fak u</button>
+    </div>
+    <script>
+        var app = new Vue({
+            el: '#app',
+            data: {
+                show: true,
+                url: 'https://www.baidu.com'
+            },
+            methods: {
+                handleClose: function () {
+                    this.show = false;
+                }
+            }
+        })
+    </script>
+</body>
+</html>
