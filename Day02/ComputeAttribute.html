@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>计算属性</title>
+    <script src="../js/vue.js"></script>
+</head>
+<body>
+    <div id="app">
+        {{ reversedText }}
+    </div>
+    <script>
+        var app = new Vue({
+            el: '#app',
+            data:{
+                text: '123,456'
+            },
+            <!-- 所有的计算属性都以函数的形式写在Vue实例内的computed选项内，最终返回函数的计算结果 -->
+            computed: {
+                reversedText: function () {
+                    return this.text.split(',').reverse().join(',');
+                }
+            }
+        })
+    </script>
+</body>
+</html>
