@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>计算属性用法2</title>
+    <script src="../js/vue.js"></script>
+</head>
+<body>
+    <div id="app">
+        姓名：{{fullName}}
+    </div>
+    <script>
+        var app = new Vue({
+            el: '#app',
+            data: {
+                firstName: 'Jack',
+                lastName: 'Green'
+            },
+            computed: {
+                fullName: {
+                    get: function () {
+                        return this.firstName + ' ' + this.lastName;
+                    },
+                    set: function (newValue) {
+                        <!-- setter 写入时触发 -->
+                        var names = newValue.split(' ');
+                        console.log("分割姓和名之后分别赋值")
+                        this.firstName = names[0];
+                        this.lastName = names[1];
+                    }
+                }
+            }
+        })
+    </script>
+</body>
+</html>
