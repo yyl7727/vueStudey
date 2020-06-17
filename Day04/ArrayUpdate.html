@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>数组更新</title>
+    <script src="../js/vue.js"></script>
+</head>
+<body>
+    <div id="app">
+        <ul>
+            <template v-for="book in books">
+                <li>书名： {{book.name}}</li>
+                <li>作者： {{book.author}}</li>
+            </template>
+        </ul>
+    </div>
+    <script>
+        var app = new Vue({
+            el: '#app',
+            data: {
+                books: [
+                    {
+                        name: '《Vue.js 实战》',
+                        author: 'yyl'
+                    },
+                    {
+                        name: '《JavaScript 语言精粹》',
+                        author: 'zxy'
+                    },
+                    {
+                        name: '《JavaScript 高级程序设计》',
+                        author: 'zxx'
+                    }
+                ]
+            }
+        })
+
+        <!-- 只会显示名字中带有JavaScript的项 -->
+        app.books = app.books.filter(function (item) {
+            return item.name.match(/JavaScript/)
+        })
+
+        <!-- 需要注意通过数组的索引直接设定数组中某一项的值或者修改数组长度时Vue不会自动更新数据 -->
+        <!-- 解决以上的问题可以用Vue内置的set方法 Vue.set(app.books, 3, {name: '',author: ''}) -->
+    </script>
+</body>
+</html>
