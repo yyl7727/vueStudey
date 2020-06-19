@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>购物车</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <div id="app" v-cloak>
+        <template v-if="list.length">
+            <table>
+                <th><input @click="handleAllChecked" type="checkbox"></th>
+                <th>id</th>
+                <th>名称</th>
+                <th>单价</th>
+                <th>数量</th>
+                <th>操作</th>
+                <tr v-for="(xxx, index) in list">
+                    <td><input @click="handleSingleCheck(index,xxx.id)" :checked="checkedList.indexOf(xxx.id)>=0" type="checkbox"></td>
+                    <td>{{xxx.id}}</td>
+                    <td>{{xxx.name}}</td>
+                    <td>{{xxx.price}}</td>
+                    <td>{{xxx.count}}</td>
+                    <td>
+                        <button @click="handleRemove(index)">移除</button>
+                    </td>
+                </tr>
+            </table>
+            <div>总价： ￥ {{totalPrice}}</div>
+        </template>
+        <div v-else>
+            购物车为空
+        </div>
+    </div>
+    <script src="../js/vue.js"></script>
+    <script src="js/index.js"></script>
+</body>
+</html>
