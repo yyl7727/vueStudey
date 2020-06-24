@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Modifier</title>
+    <script src="../js/vue.js"></script>
+</head>
+<body>
+    <!-- .lazy会让v-model不在实时同步数据而是转变为在change事件中同步 -->
+    <div id="app">
+        <input type="text" v-model.lazy="message">
+        <p>{{message}}</p>
+    </div>
+    <script>
+        var app = new Vue({
+            el: '#app',
+            data: {
+                message: ''
+            }
+        })
+    </script>
+
+    <!-- .number能让输入的字符串转为数字类型 -->
+    <!-- .trim能自动过滤首尾的空格 -->
+</body>
+</html>
