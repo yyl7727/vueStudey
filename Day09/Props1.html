@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>使用props传递来自父级的动态数据</title>
+    <script src="../js/vue.js"></script>
+</head>
+<body>
+    <div id="app">
+
+    </div>
+    <script>
+        Vue.component('my-component',{
+            props: ['message'],
+            template: '<div>{{message}}</div>'
+        })
+    </script>
+</body>
+</html>
