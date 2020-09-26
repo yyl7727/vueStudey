@@ -2,23 +2,18 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>组件与复用</title>
+    <title>Title</title>
     <script src="../js/vue.js"></script>
 </head>
 <body>
     <div id="app">
-        <my-component>
-
-        </my-component>
+        <p>{{msg}}</p>
     </div>
     <script>
-        Vue.component('my-component',{
-            template: '<div>这是组件显示内容</div>'
-        })
-        var app = new Vue({
+        new Vue({
             el: '#app',
             data: {
-
+                msg: '一刀999，是兄弟就来砍我！'
             }
         })
     </script>
