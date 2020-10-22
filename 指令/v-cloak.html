@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script type="text/javascript" src="../js/vue.js"></script>
+    <style>
+        [v-cloak] {
+            display: none;
+        }
+    </style>
+</head>
+<body>
+    <div id="app">
+        <div v-cloak>{{msg}}</div>
+    </div>
+</body>
+<script>
+    var vue = new Vue({
+        el: '#app',
+        data: {
+            msg: 'Hello World'
+        }
+    })
+</script>
+</html>
