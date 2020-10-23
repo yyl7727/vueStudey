@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script type="text/javascript" src="../js/vue.js"></script>
+</head>
+<body>
+    <div id="app">
+        <form>
+            <div>
+                用户名：
+                <input type="text" v-model="username"/>
+            </div>
+            <div>
+                密码：
+                <input type="text" v-on:keyup.enter="submitData" v-model="password"/>
+            </div>
+            <div>
+                <input type="button" value="提交" @click="submitData()"/>
+            </div>
+        </form>
+    </div>
+</body>
+<script>
+    var vue = new Vue({
+        el: '#app',
+        data: {
+            username: "",
+            password: ""
+        },
+        methods: {
+            submitData: function() {
+                console.log(this.username, this.password);
+            }
+        }
+    })
+</script>
+</html>
