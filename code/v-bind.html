@@ -8,14 +8,22 @@
 </head>
 <body>
     <div id="app">
-        <a v-bind:href="url">测试链接</a>
+        <a v-bind:href="url">{{urlName}}</a>
+        <button @click="chanegUrl">切换</button>
     </div>
 </body>
 <script>
     var vue = new Vue({
         el: '#app',
         data: {
+            urlName: '百度',
             url: "http://www.baidu.com"
+        },
+        methods: {
+            chanegUrl: function() {
+                this.url = 'http://www.qq.com'
+                this.urlName = 'QQ'
+            }
         }
     })
 </script>
